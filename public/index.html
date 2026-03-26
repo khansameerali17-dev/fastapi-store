@@ -5,15 +5,215 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="tZpAadN5sd7-o9__jOHBWYX1gCJuSxyoZKMorS-u72A" />
-    <title>FreshGrove | Premium Online Grocery</title>
-    <!-- Use elegant, modern fonts -->
+
+    <!-- Primary Meta Tags -->
+    <title>FreshGrove | Farm-Fresh Groceries Delivered in 30 Minutes</title>
+    <meta name="title" content="FreshGrove | Farm-Fresh Groceries Delivered in 30 Minutes">
+    <meta name="description"
+        content="Order premium organic groceries online from FreshGrove. 100% fresh produce from local farms delivered to your door in 30 minutes. Free delivery on orders over $50.">
+    <meta name="keywords"
+        content="online grocery, fresh produce, organic vegetables, grocery delivery, farm fresh, local produce, 30 minute delivery">
+    <meta name="author" content="FreshGrove">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fastapi-store-jeio.onrender.com/">
+    <meta property="og:title" content="FreshGrove | Farm-Fresh Groceries Delivered in 30 Minutes">
+    <meta property="og:description"
+        content="Order premium organic groceries online. 100% fresh produce from local farms delivered to your door in 30 minutes.">
+    <meta property="og:image" content="https://fastapi-store-jeio.onrender.com/images/og-image.jpg">
+    <meta property="og:site_name" content="FreshGrove">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://fastapi-store-jeio.onrender.com/">
+    <meta name="twitter:title" content="FreshGrove | Farm-Fresh Groceries Delivered in 30 Minutes">
+    <meta name="twitter:description"
+        content="Order premium organic groceries online. Fresh from local farms, delivered in 30 minutes.">
+    <meta name="twitter:image" content="https://fastapi-store-jeio.onrender.com/images/twitter-card.jpg">
+
+    <!-- Additional -->
+    <meta name="theme-color" content="#10b981">
+    <link rel="canonical" href="https://fastapi-store-jeio.onrender.com/">
+
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="/images/hero.webp">
+    <link rel="preload" as="font" href="/fonts/main.woff2" type="font/woff2" crossorigin>
+
+    <!-- Fonts & Styles -->
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Defer non-critical CSS (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+
+    <!-- Critical above-fold CSS -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 10, .8)
+        }
+
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 3rem
+        }
+
+        .loader-ring {
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255, 255, 255, .3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin .6s linear infinite
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+    </style>
+
+    <!-- Defer non-critical JavaScript -->
+    <script src="/js/analytics.js" defer></script>
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "FreshGrove",
+      "image": "https://fastapi-store-jeio.onrender.com/images/logo.jpg",
+      "@id": "https://fastapi-store-jeio.onrender.com",
+      "url": "https://fastapi-store-jeio.onrender.com",
+      "telephone": "+91-6281502597",
+      "priceRange": "200-600",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "chanchalguda",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "postalCode": "500024",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 17.3616,
+        "longitude": 78.4747
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "07:00",
+        "closes": "22:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/freshgrove",
+        "https://www.instagram.com/freshgrove",
+        "https://twitter.com/freshgrove"
+      ]
+    }
+    </script>
+
+    <!-- GroceryStore Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GroceryStore",
+      "name": "FreshGrove",
+      "description": "Farm-fresh groceries delivered directly to your doorstep in 30 minutes",
+      "url": "https://fastapi-store-jeio.onrender.com",
+      "logo": "https://fastapi-store-jeio.onrender.com/images/logo.jpg",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Fresh Groceries",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Fruits",
+            "itemListElement": []
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Vegetables",
+            "itemListElement": []
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Product Schema (for individual product pages) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Organic Tomatoes",
+      "image": "https://fastapi-store-jeio.onrender.com/images/organic-tomatoes.jpg",
+      "description": "Fresh organic tomatoes from local farms",
+      "sku": "TOM-001",
+      "brand": {
+        "@type": "Brand",
+        "name": "FreshGrove"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://fastapi-store-jeio.onrender.com/products/organic-tomatoes",
+        "priceCurrency": "USD",
+        "price": "4.99",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "FreshGrove"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "247"
+      }
+    }
+    </script>
 </head>
 
 <body>
