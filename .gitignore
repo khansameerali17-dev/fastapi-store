@@ -1,0 +1,28 @@
+# Virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Utility scripts (not needed for deployment)
+fetch_images.py
+fetch_images_duck.py
+apply_images.py
+fix_main.py
+images.json
+images2.json
+images3.json

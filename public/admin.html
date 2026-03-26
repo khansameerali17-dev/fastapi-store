@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshGrove | Admin Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ── Admin-specific styles ── */
+        .admin-container {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+        }
+        .admin-header .sub-text {
+            color: var(--text-light);
+            margin-top: 5px;
+            font-size: 1rem;
+        }
+        .admin-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            flex: 1;
+            min-width: 180px;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: var(--transition);
+        }
+        .stat-card:hover { transform: translateY(-4px); }
+        .stat-card .stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-card .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* Table */
+        .orders-table-wrapper {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(16,185,129,0.08);
+            overflow-x: auto;
+        }
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .orders-table th, .orders-table td {
+            padding: 1.2rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+        .orders-table th {
+            background: linear-gradient(135deg, var(--body-bg), #ECFDF5);
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1.2px;
+        }
+        .orders-table tr { transition: var(--transition); }
+        .orders-table tr:hover { background: rgba(16, 185, 129, 0.03); }
+
+        /* Status badges */
+        .status-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .status-placed { background: linear-gradient(135deg, #FEF3C7, #FDE68A); color: #92400E; }
+        .status-accepted { background: linear-gradient(135deg, #D1FAE5, #A7F3D0); color: #065F46; }
+        .status-rejected { background: linear-gradient(135deg, #FEE2E2, #FECACA); color: #991B1B; }
+        .status-delivered { background: linear-gradient(135deg, #DBEAFE, #BFDBFE); color: #1E40AF; }
+
+        /* Action buttons */
+        .action-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .action-btn {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .action-btn:hover { transform: translateY(-2px); }
+        .btn-accept { background: var(--primary-light); color: var(--primary-dark); }
+        .btn-accept:hover { background: var(--primary); color: white; box-shadow: 0 4px 12px rgba(16,185,129,0.3); }
+        .btn-reject { background: #FEE2E2; color: #991B1B; }
+        .btn-reject:hover { background: var(--danger); color: white; box-shadow: 0 4px 12px rgba(239,68,68,0.3); }
+        .btn-deliver { background: #DBEAFE; color: #1E40AF; }
+        .btn-deliver:hover { background: #3B82F6; color: white; box-shadow: 0 4px 12px rgba(59,130,246,0.3); }
+
+        /* Items list */
+        .order-items-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .order-items-list li {
+            font-size: 0.88rem;
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .order-items-list li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Live indicator */
+        .live-dot {
+            width: 8px; height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            animation: livePulse 1.5s ease-in-out infinite;
+        }
+        @keyframes livePulse {
+            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(16,185,129,0.7); }
+            50% { opacity: 0.7; transform: scale(1.3); box-shadow: 0 0 0 6px rgba(16,185,129,0); }
+        }
+
+        /* Login Overlay */
+        .login-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(15px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .login-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .login-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .login-card p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .login-card .login-input {
+            width: 100%;
+            padding: 1.1rem;
+            border-radius: var(--radius-sm);
+            border: 2px solid rgba(16,185,129,0.15);
+            font-size: 1rem;
+            font-family: 'Outfit', sans-serif;
+            text-align: center;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+        .login-card .login-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(16,185,129,0.1);
+        }
+        .login-error {
+            color: var(--danger);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        .refresh-btn {
+            background: linear-gradient(135deg, var(--primary-light), #A7F3D0);
+            color: var(--primary-dark);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Outfit', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .refresh-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+        }
+        .refresh-btn i { transition: transform 0.3s ease; }
+        .refresh-btn:hover i { transform: rotate(180deg); }
+    </style>
+</head>
+<body>
+    <div class="blob-bg"></div>
+    <div class="blob-bg blob-2"></div>
+    <div class="blob-bg blob-3"></div>
+
+    <!-- Login Overlay -->
+    <div class="login-overlay" id="login-overlay">
+        <div class="login-card">
+            <div style="font-size: 3rem; margin-bottom: 1rem;"><i class="fas fa-lock" style="color: var(--primary);"></i></div>
+            <h2>Admin Access</h2>
+            <p>Enter your admin password to continue</p>
+            <div class="login-error" id="login-error">Incorrect password. Try again.</div>
+            <input type="password" class="login-input" id="admin-password" placeholder="Enter password" autofocus>
+            <button class="btn-primary" style="width: 100%; margin-top: 0.5rem;" onclick="attemptLogin()">
+                <i class="fas fa-sign-in-alt"></i> Sign In
+            </button>
+        </div>
+    </div>
+
+    <nav class="navbar glass-effect">
+        <div class="nav-container">
+            <h1 class="logo" style="display: flex; align-items: baseline;">
+                <a href="/"><i class="fas fa-leaf"></i> FreshGrove</a>
+                <span style="color: var(--text-light); font-size: 1.1rem; margin-left: 10px; font-weight: 500;">| Admin</span>
+            </h1>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Back to Store</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="admin-container">
+        <!-- Stats Row -->
+        <div class="admin-stats" id="admin-stats">
+            <div class="stat-card glass-panel">
+                <div class="stat-number" id="stat-total">0</div>
+                <div class="stat-label">Total Orders</div>
+            </div>
+            <div class="stat-card glass-panel">
+                <div class="stat-number" id="stat-placed" style="background: linear-gradient(135deg, #F59E0B, #D97706); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">0</div>
+                <div class="stat-label">Pending</div>
+            </div>
+            <div class="stat-card glass-panel">
+                <div class="stat-number" id="stat-accepted" style="background: linear-gradient(135deg, #10B981, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">0</div>
+                <div class="stat-label">Accepted</div>
+            </div>
+            <div class="stat-card glass-panel">
+                <div class="stat-number" id="stat-delivered" style="background: linear-gradient(135deg, #3B82F6, #2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">0</div>
+                <div class="stat-label">Delivered</div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="admin-header">
+            <div>
+                <h2 class="elegant-title">Order Management</h2>
+                <p class="sub-text"><span class="live-dot"></span>Live — auto-refreshing every 5 seconds</p>
+            </div>
+            <button class="refresh-btn" onclick="fetchOrders()"><i class="fas fa-sync-alt"></i> Refresh</button>
+        </div>
+
+        <!-- Orders Table -->
+        <div class="orders-table-wrapper glass-panel">
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Date & Time</th>
+                        <th>Customer</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-tbody">
+                    <tr><td colspan="7" style="text-align: center; padding: 4rem; color: var(--text-light);">Authenticating...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="/admin.js"></script>
+</body>
+</html>
