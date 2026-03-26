@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,23 @@
     <!-- Use elegant, modern fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <div class="blob-bg"></div>
     <div class="blob-bg blob-2"></div>
     <div class="blob-bg blob-3"></div>
     <div class="particles" id="particles"></div>
-    
+
     <nav class="navbar glass-effect">
         <div class="nav-container">
             <h1 class="logo glow-text" onclick="showView('products')"><i class="fas fa-leaf"></i> FreshGrove</h1>
-            
+
             <div class="nav-links">
                 <a href="#" class="nav-link active" onclick="showView('products')" data-view="products">Home</a>
                 <a href="#" class="nav-link" onclick="showView('offers')" data-view="offers">Offers</a>
@@ -44,11 +48,15 @@
                 <div class="hero-content">
                     <span class="badge">100% Organic</span>
                     <h2 class="hero-title">Experience the Joy of <em>Freshness</em></h2>
-                    <p class="hero-subtitle">Farm-fresh groceries delivered directly to your doorstep in 30 minutes. Hand-picked quality you can trust.</p>
-                    <button class="btn-primary hero-btn" onclick="document.getElementById('catalog').scrollIntoView({behavior: 'smooth'})">Explore Catalog <i class="fas fa-arrow-right"></i></button>
+                    <p class="hero-subtitle">Farm-fresh groceries delivered directly to your doorstep in 30 minutes.
+                        Hand-picked quality you can trust.</p>
+                    <button class="btn-primary hero-btn"
+                        onclick="document.getElementById('catalog').scrollIntoView({behavior: 'smooth'})">Explore
+                        Catalog <i class="fas fa-arrow-right"></i></button>
                 </div>
                 <div class="hero-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop&q=80" alt="Fresh Groceries" class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop&q=80"
+                        alt="Fresh Groceries" class="hero-image">
                 </div>
             </div>
 
@@ -81,29 +89,35 @@
             <div class="offers-grid">
                 <div class="offer-card glass-panel">
                     <div class="offer-badge">20% OFF</div>
-                    <img src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=500&auto=format&fit=crop&q=60" alt="Fresh Produce">
+                    <img src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=500&auto=format&fit=crop&q=60"
+                        alt="Fresh Produce">
                     <div class="offer-content">
                         <h3>Organic Produce</h3>
                         <p>Enjoy 20% off on all organic fruits and vegetables this week. Fresh from local farms.</p>
-                        <button class="btn-text" onclick="showView('products')">Shop Now <i class="fas fa-arrow-right"></i></button>
+                        <button class="btn-text" onclick="showView('products')">Shop Now <i
+                                class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
                 <div class="offer-card glass-panel">
                     <div class="offer-badge">FREE</div>
-                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=500&auto=format&fit=crop&q=60" alt="Dairy">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=500&auto=format&fit=crop&q=60"
+                        alt="Dairy">
                     <div class="offer-content">
                         <h3>Free Delivery</h3>
                         <p>Get free delivery on your first order over $50. Use code FRESH50 at checkout.</p>
-                        <button class="btn-text" onclick="showView('products')">Shop Now <i class="fas fa-arrow-right"></i></button>
+                        <button class="btn-text" onclick="showView('products')">Shop Now <i
+                                class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
                 <div class="offer-card glass-panel">
                     <div class="offer-badge">BOGO</div>
-                    <img src="https://images.unsplash.com/photo-1555507036-ab1e4006aa07?w=500&auto=format&fit=crop&q=60" alt="Bakery">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1e4006aa07?w=500&auto=format&fit=crop&q=60"
+                        alt="Bakery">
                     <div class="offer-content">
                         <h3>Bakery Special</h3>
                         <p>Buy one get one free on all artisan bread and fresh morning pastries.</p>
-                        <button class="btn-text" onclick="showView('products')">Shop Now <i class="fas fa-arrow-right"></i></button>
+                        <button class="btn-text" onclick="showView('products')">Shop Now <i
+                                class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -118,7 +132,10 @@
             <div class="about-content glass-panel">
                 <div class="about-text">
                     <h3>We Believe in Fresh</h3>
-                    <p>FreshGrove was born from a simple idea: everyone deserves access to high-quality, farm-fresh produce without the hassle of navigating crowded supermarkets. We partner directly with local farmers to bring you the best ingredients, picked at peak ripeness and delivered right to your door.</p>
+                    <p>FreshGrove was born from a simple idea: everyone deserves access to high-quality, farm-fresh
+                        produce without the hassle of navigating crowded supermarkets. We partner directly with local
+                        farmers to bring you the best ingredients, picked at peak ripeness and delivered right to your
+                        door.</p>
                     <div class="about-features">
                         <div class="feature-item">
                             <i class="fas fa-leaf"></i>
@@ -135,7 +152,8 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop&q=80" alt="Farm">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop&q=80"
+                        alt="Farm">
                 </div>
             </div>
         </section>
@@ -145,7 +163,7 @@
             <div class="back-nav">
                 <button id="back-to-shop" class="btn-text"><i class="fas fa-arrow-left"></i> Continue Shopping</button>
             </div>
-            
+
             <header class="section-header fade-up">
                 <h2 class="elegant-title">Your Basket</h2>
             </header>
@@ -154,7 +172,7 @@
                 <div class="cart-items" id="cart-items">
                     <!-- Cart items injected here -->
                 </div>
-                
+
                 <div class="cart-summary glass-panel sticky-summary">
                     <h3>Order Summary</h3>
                     <div class="summary-line">
@@ -169,7 +187,8 @@
                         <span>Total</span>
                         <span id="cart-total" class="highlight-total">$0.00</span>
                     </div>
-                    <button class="btn-primary w-100 mt-4 checkout-btn-glow" onclick="showView('checkout')">Secure Checkout <i class="fas fa-lock ml-2"></i></button>
+                    <button class="btn-primary w-100 mt-4 checkout-btn-glow" onclick="showView('checkout')">Secure
+                        Checkout <i class="fas fa-lock ml-2"></i></button>
                 </div>
             </div>
         </section>
@@ -177,9 +196,10 @@
         <!-- Checkout View (Advanced Payment Simulation) -->
         <section id="checkout-view" class="view">
             <div class="back-nav fade-up">
-                <button class="btn-text" onclick="showView('cart')"><i class="fas fa-arrow-left"></i> Back to Cart</button>
+                <button class="btn-text" onclick="showView('cart')"><i class="fas fa-arrow-left"></i> Back to
+                    Cart</button>
             </div>
-            
+
             <header class="section-header fade-up">
                 <h2 class="elegant-title">Payment Details</h2>
                 <p>Complete your purchase securely.</p>
@@ -193,7 +213,7 @@
                         <div class="pay-tab inactive"><i class="fab fa-apple"></i> Apple Pay</div>
                         <div class="pay-tab inactive"><i class="fab fa-paypal"></i> PayPal</div>
                     </div>
-                    
+
                     <!-- Simulated interactive card -->
                     <div class="credit-card-preview" id="cc-preview">
                         <div class="cc-chip"></div>
@@ -218,12 +238,14 @@
                         </div>
                         <div class="form-group">
                             <label>Card Number</label>
-                            <input type="text" id="cc-num" class="modern-input" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                            <input type="text" id="cc-num" class="modern-input" placeholder="0000 0000 0000 0000"
+                                maxlength="19" required>
                         </div>
                         <div class="form-row">
                             <div class="form-group flex-1">
                                 <label>Expiry Date</label>
-                                <input type="text" id="cc-exp" class="modern-input" placeholder="MM/YY" maxlength="5" required>
+                                <input type="text" id="cc-exp" class="modern-input" placeholder="MM/YY" maxlength="5"
+                                    required>
                             </div>
                             <div class="form-group flex-1">
                                 <label>CVC</label>
@@ -232,9 +254,10 @@
                         </div>
                         <div class="form-group">
                             <label>Delivery Address</label>
-                            <input type="text" id="cust-address" class="modern-input" placeholder="123 Fresh Ave, NY" required>
+                            <input type="text" id="cust-address" class="modern-input" placeholder="123 Fresh Ave, NY"
+                                required>
                         </div>
-                        
+
                         <button type="submit" id="pay-btn" class="btn-primary w-100 btn-large">
                             <span class="btn-text-content">Pay <span id="checkout-amount-display">$0.00</span></span>
                             <div class="loader-ring hidden"></div>
@@ -249,8 +272,8 @@
             <div class="success-container glass-panel">
                 <div class="success-animation-wrapper">
                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-                        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
                     </svg>
                 </div>
                 <h2>Payment Successful!</h2>
@@ -265,11 +288,15 @@
         </section>
     </main>
 
-    <footer style="text-align: center; padding: 2.5rem 1rem; margin-top: 4rem; border-top: 1px solid rgba(16,185,129,0.1); color: var(--text-light); font-size: 0.95rem;">
-        <p style="margin-bottom: 0.5rem;"><i class="fas fa-leaf" style="color: var(--primary); margin-right: 6px;"></i><strong style="color: var(--dark);">FreshGrove</strong></p>
+    <footer
+        style="text-align: center; padding: 2.5rem 1rem; margin-top: 4rem; border-top: 1px solid rgba(16,185,129,0.1); color: var(--text-light); font-size: 0.95rem;">
+        <p style="margin-bottom: 0.5rem;"><i class="fas fa-leaf"
+                style="color: var(--primary); margin-right: 6px;"></i><strong
+                style="color: var(--dark);">FreshGrove</strong></p>
         <p>&copy; 2026 Sameer Ali Khan. All rights reserved.</p>
     </footer>
 
     <script src="/app.js"></script>
 </body>
+
 </html>
